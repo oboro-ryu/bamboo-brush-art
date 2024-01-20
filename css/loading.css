@@ -1,0 +1,128 @@
+/*==============ローディングアニメーション===============*/
+body.loading header, 
+body.loading .carousel-container, 
+body.loading .container,
+body.loading footer,
+body.loading .profile-container,
+body.loading .digital-sumi-e-intro,
+body.loading .parallax-section,
+body.loading .container,
+body.loading aside {
+    display: none;
+}
+
+
+body {
+    background-color: #1C1C1C;
+}
+
+
+#loading-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+#loading-text {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #E87E04;
+    width: 200px;
+    height: 30px;
+    margin: -7px 0 0 -100px;
+    text-align: center;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#loading-content {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 170px;
+    height: 170px;
+    margin: -85px 0 0 -85px;
+    border: 3px solid #E87E04;
+    border-radius: 50%;
+    animation: loader 2s linear infinite;
+}
+
+#loading-content:after {
+    content: "";
+    position: absolute;
+    border: 3px solid #E87E04;
+    left: 15px;
+    right: 15px;
+    top: 15px;
+    bottom: 15px;
+}
+
+#loading-content:before,
+#loading-content:after {
+    content: "";
+    position: absolute;
+    border: 3px solid transparent;
+    border-radius: 50%;
+}
+
+#loading-content:before {
+    border-top-color: #E87E04;
+    border-bottom-color: #E87E04;
+    left: 5px;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+    animation: loader 3s linear infinite;
+}
+
+#loading-content:after {
+    left: 15px;
+    right: 15px;
+    top: 15px;
+    bottom: 15px;
+    border-top-color: #1C1C1C;
+    border-bottom-color: #1C1C1C;
+    animation: loader 1.5s linear infinite;
+}
+
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#content-wrapper {
+    color: #FFF;
+    position: fixed;
+    left: 0;
+    top: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+#header {
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    height: 100px;
+    background-color: #666;
+}
+
+#content {
+    width: 800px;
+    height: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #888;
+}

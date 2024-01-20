@@ -1,0 +1,20 @@
+.law_table{
+    width: 100%;
+    text-align: left;
+    border: none;
+    border-collapse: separate;
+    border-spacing : 6px 4px;
+  }
+  .law_table th{
+    width: 30%;
+    background-color: #f1f1f1;
+  }
+  .law_table td{
+    background-color: #f1f1f1;
+
+  }
+  @media (max-width: 640px) {
+    .law_table{
+      font-size: 14px;
+    }
+  }

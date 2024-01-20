@@ -1,0 +1,72 @@
+/*============スマホ用スタイル(画面幅767px以下)==============*/
+@media(max-width:780px) {
+    main, .card-list, .video-list {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    p, .author1 p {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    header {
+        position: relative;
+        flex-flow: column;
+        margin: 0;
+    }
+
+    .container {
+        flex-direction: column;
+        width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .article-container {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+    .article-container img, .horizontal_image img, .big_horizontal_image img {
+        width: 280px;
+        height: 157px;
+    }
+
+    .horizontal_image img, .big_horizontal_image img {
+        height: 180px;
+        width: 320px;
+    }
+
+    .card-list-square img {
+        padding-right: 0;
+    }
+
+    .card-list-portrait img {
+        width: 320px;
+        height: 460px;
+    }
+
+    .archive div {
+        margin: 2rem;
+        background-color: white;
+        width: 300px;
+        height: 180px;
+    }
+
+    .archive h1 {
+        font-size: 25px;
+    }
+
+    .archive img {
+        text-align: center;
+        margin-top: 20px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .social-links a {
+        margin: 4px;
+        text-align: center;
+        line-height: 40px;
+    }
+}

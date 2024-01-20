@@ -1,0 +1,194 @@
+/* プロフィール
+====================================================*/
+.author {
+    width: 300px;
+    margin-top: 60px;
+    padding-top: 5px;
+    margin-bottom: 50px;
+    background-color: #2D2D2D;
+    border-radius: 10px;
+    text-align: center;  
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.author h3 {
+    margin: 10px;
+    color: #E8E8E8; 
+}
+
+.author h4 {
+    margin: 10px;
+    color: #E8E8E8; 
+}
+.author p {
+    margin: 0 auto;  
+    text-align: center;
+    padding-left: 6px;
+    padding-right: 6px;
+    word-break: break-all; /* 単語の途中で改行させる */
+    overflow: hidden; /* ボックスの境界を超える内容を隠す */
+    max-height: 100px; /* 必要に応じて高さを調整する */
+    text-overflow: ellipsis; /* ... を使って、テキストが続いていることを示す */
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* 表示する行数を指定 */
+    -webkit-box-orient: vertical; /* ボックスの方向を垂直にする */
+    color: #E8E8E8; 
+}
+.author img {
+    margin-top: 10px;
+    width: 40%;
+    border-radius: 50%; 
+    width:  180px;       
+    height: 180px; 
+    object-fit: cover;
+    object-position: center top;
+}
+
+/*============Profileページのアニメーション=============*/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.2s;
+}
+
+.fade-in.delayed {
+    animation-delay: 0.5s;
+}
+
+/* .profile-image:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+} */
+/* スライドインアニメーション */
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+
+.slide-in-left {
+    opacity: 0;
+    animation: slideInFromLeft 1s forwards;
+    animation-delay: 0.5s;
+}
+
+
+
+/* 画像ホバーエフェクト */
+img:hover {
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s;
+}
+
+.text-hover-effect {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2px;
+    overflow: hidden;
+}
+
+.text-hover-effect::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #E87E04;
+    transition: width 0.3s;
+}
+
+.text-hover-effect:hover::after {
+    width: 100%;
+}
+
+/*=====タイトルスケールアップアニメーション======*/
+@keyframes scaleUp {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.scale-up {
+    opacity: 0;
+    animation: scaleUp 1s forwards;
+    animation-delay: 0.8s;
+}
+
+/* 画像ローテーションエフェクト */
+img.rotate-effect:hover {
+    transform: rotate(5deg);
+    transition: transform 0.5s;
+}
+
+/* p要素の背景色変更エフェクト */
+p.background-hover-effect:hover {
+    background-color: #555555;  
+    padding: 5px 0;  
+    transition: background-color 0.5s;
+}
+
+
+/* 3D回転エフェクト */
+.rotate-3d:hover {
+    transform: perspective(600px) rotateY(20deg);
+    transition: transform 0.5s;
+}
+
+/* テキストグラデーションエフェクト */
+.gradient-text {
+    background: linear-gradient(45deg, #E87E04, #E8E8E8, #E87E04);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientAnimation 5s infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/*========"将来のビジョン" セクションの背景エフェクト=========*/
+@keyframes visionBackgroundBreathe {
+    0%, 100% {
+        background: linear-gradient(180deg, #2a2a2a, #1C1C1C 50%, #2a2a2a);
+    }
+    50% {
+        background: linear-gradient(180deg, #1C1C1C, #2a2a2a 50%, #1C1C1C);
+    }
+}
+
+.introduction1, .vision1, .trainning1 {
+    animation: visionBackgroundBreathe 8s infinite ease-in-out;
+    border-radius: 20px;   /* コンテンツを柔らかくする */
+    padding: 20px;        /* 内容との間にスペースを追加する */
+    margin: 20px 0;       /* セクションの上下に余白を追加する */
+}
+

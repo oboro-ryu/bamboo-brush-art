@@ -1,0 +1,233 @@
+/*=================Template=====================*/
+/* WooCommerce Products Style Adjustments for Menu Section */
+
+.menu .box .woocommerce-loop-product__link {
+    display: block;
+    text-align: center;
+}
+
+.menu .box img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.menu .box h3 {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.menu .box .price {
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.menu .box .button {
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.4rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.menu .box .button:hover {
+    background-color: #fff;
+    color: var(--main-color);
+}
+/*=====================Woocommerce Style================================*/
+nav.woocommerce-breadcrumb {
+    display: none;
+}
+span.onsale {
+	display: none;
+}
+div.woocommerce-product-gallery__image {
+	display: none;
+}
+p.price {
+	display: none;
+}
+div.summary entry-summary{
+	display: none;
+}
+ul.tabs.wc-tabs {
+    display: none;
+}
+#tab-description h2:first-child {
+    display: none;
+}
+h1.product_title.entry-title {
+    display: none;
+}
+
+
+
+input.input-text.qty {
+    font-family: 'YourChosenFont', serif;
+    font-size: 16px;
+    color: #333;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+input.input-text.qty:hover {
+    border-color: #bbb;
+}
+
+input.input-text.qty:focus {
+    border-color: #d3ad7f;
+    box-shadow: 0 0 0 2px rgba(228, 77, 38, 0.2);
+    outline: none;
+}
+
+/* 数値入力フィールドのスタイル */
+input.input-text.qty {
+    font-family: 'YourChosenFont', serif;
+    font-size: 16px;
+    color: #333;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+input.input-text.qty:hover {
+    border-color: #bbb;
+}
+
+input.input-text.qty:focus {
+    border-color: #d3ad7f;
+    box-shadow: 0 0 0 2px rgba(228, 77, 38, 0.2);
+    outline: none;
+}
+
+/*=============商品ボタンのスタイル===============*/
+button.single_add_to_cart_button {
+    font-family: 'YourChosenFont', serif;
+    font-size: 16px;
+    color: #fff;
+    background-color: #d3ad7f;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+button.single_add_to_cart_button:hover {
+    color: #333;
+    background-color: #d3ad7f;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+button.single_add_to_cart_button:active {
+    background-color: #d3ad7f;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateY(1px);
+}
+/*=============関連商品ボタンのスタイル===============*/
+.button {
+    background-color: #d3ad7f; /* ボタンの背景色 */
+    color: #fff;
+    padding: 10px 20px; /* パディング */
+    text-align: center; /* テキストを中央揃え */
+    text-decoration: none; /* 下線を非表示 */
+    display: inline-block; /* インラインブロック要素として表示 */
+    font-family: 'YourChosenFont', serif;
+    font-size: 16px;
+    margin: 4px 2px; /* マージン */
+    cursor: pointer; /* カーソルをポインターに */
+    border-radius: 5px; /* 角丸 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+    color: #333;
+    background-color: #d3ad7f;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+.button:active{
+    background-color: #d3ad7f;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateY(1px);
+}
+
+.logo-container h1 {
+    font-family: 'YourChosenFont', serif;
+    color: #333;
+    text-shadow: 1px 1px 2px #bbb;
+}
+
+.logo-container h1 a {
+	text-decoration: none;
+	font-family: 'YourChosenFont', serif;
+    color: inherit;
+}
+
+.logo-container h1 .blink-text {
+    font-family: 'YourChosenFont', serif;
+    color: #333;
+    text-shadow: 1px 1px 2px #bbb;
+}
+
+/* ロゴコンテナと見出しのスタイル */
+.logo-container h1 {
+    font-family: 'YourChosenFont', serif;
+    color: #333;
+    text-shadow: 1px 1px 2px #bbb;
+}
+
+/* 記事コンテナのスタイル */
+.article-container {
+    background-color: #1C1C1C; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+.article-container:hover {
+    background-color: #f9f9f9; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+/* テーブルのスタイル */
+.shop_table {
+    width: 100%; 
+    border-collapse: collapse; 
+}
+
+.shop_table th, .shop_table td {
+    padding: 10px; 
+    border: 1px solid #ccc; 
+}
+
+.shop_table th {
+    background-color: #f1f1f1; /* 見出しセルの背景色 */
+}
+
+/*==============shopの文字修正=================*/
+nav.woocommerce-breadcrumb{
+    color: white;
+}
+li.slide_on{
+    color: white
+}
+
+span.posted_in{
+    color: white;
+    font-size: larger;
+}
+span.tagged_as{
+    color: white;
+    font-size: larger;
+}

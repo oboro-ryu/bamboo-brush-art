@@ -1,0 +1,99 @@
+/*==============Animation==============*/
+a, .archive a, .card-list img, .horizontal_image img, .big_horizontal_image img, .portrait_image img, .card-list-square img {
+    transition: all 0.3s ease;
+ }
+
+ .archive a:hover, .card-list:hover, .horizontal_image img:hover, .big_horizontal_image img:hover, .portrait_image img:hover, .card-list-square img:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+ }
+ 
+ .card-list, .author, .card-wrap {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ }
+ .card-list:hover, .author:hover, .card-wrap:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+ }
+
+ header, footer {
+    background: linear-gradient(160deg, #333333, #1C1C1C);
+ }
+
+ /*================シャドウの追加======================*/
+.box-shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*=============スムースなホバーエフェクト============*/
+a:hover, .hover-effect:hover {
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+/*  hの点滅エフェクト
+====================================================*/
+@keyframes smoothBlinking {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+        color: #E8E8E8;
+    }
+}
+
+
+/*=============フェードインアニメーション=====================*/
+.fade-in {
+    opacity: 0;
+    transform: translateY(-20px);
+    visibility: hidden;
+    animation: fadeInAnimation 1s forwards 0.5s ease-out;
+}
+
+header, .container, footer, .card-list, .article-container {
+    transition: all 0.3s ease;
+}
+
+.card-list:hover, .article-container:hover {
+    transform: translateY(-5px);
+}
+
+@keyframes fadeInAnimation {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+    }
+}
+
+/*=============ページトップへのボタンのスタイル==================*/
+.scrollTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.parallax-section {
+    position: relative;
+    overflow: hidden; 
+}
+
+.parallax-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1; 
+}
