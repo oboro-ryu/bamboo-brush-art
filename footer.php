@@ -1,6 +1,10 @@
 </main>
 <?php 
+<<<<<<< Updated upstream
 // 条件分岐を開始
+=======
+// 条件分岐を開始します。
+>>>>>>> Stashed changes
 if (
     // 現在のページが 'contact' ではない場合
     !is_page('contact') && 

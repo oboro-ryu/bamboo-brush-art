@@ -6,22 +6,32 @@ add_theme_support( "post-thumbnails" );
 
 function titles()
 {
+    // 現在のページのタイトルを取得し、" | "を区切り文字として使用
     $title = wp_title(" | ", true, "right");
+
     if (is_home() || is_front_page()) {
-        // トップページ
+        // この条件分岐は、現在のページがホームページまたはフロントページの場合に該当します
+        // ホームページまたはフロントページの場合、指定されたタイトルを出力
         echo "Bamboo Brush Art | デジタル水墨画アート販売サイト";
     } else {
-        // トップページ以外
+        // 上記の条件に当てはまらない場合（トップページ以外のページ）
+        // 取得したページタイトルと" | "の後にサイト名を追加して出力
         echo $title . "Bamboo Brush Art";
     }
 };
 
 
-
+// WordPress の 'after_setup_theme' フックに 'woocommerce_support' 関数を追加します。
+// 'after_setup_theme' フックは、テーマがセットアップされた後に実行されるフックです。
 add_action( 'after_setup_theme', 'woocommerce_support' );
+
 function woocommerce_support() {
-add_theme_support( 'woocommerce' );
+    // テーマに WooCommerce のサポートを追加します。
+    // これにより、テーマが WooCommerce プラグインとの互換性を持ち、
+    // WooCommerce の機能が正しく動作するようになります。
+    add_theme_support( 'woocommerce' );
 }
+
 
 
 //ウィジェット
@@ -42,65 +52,82 @@ add_action('widgets_init', 'sample_widgets');
 
 
 // 検索
-function my_posy_search($search) {
+// 検索クエリにフィルターを適用する関数を定義します。
+function my_post_search($search) {
+    // 現在のリクエストが検索ページの場合にのみ処理を行います。
     if(is_search()) {
-    $search .= " AND post_type = 'post'";
+        // 検索クエリに "AND post_type = 'post'" を追加して、
+        // 検索結果を投稿(post)タイプに限定します。
+        $search .= " AND post_type = 'post'";
     }
+    // 変更後の検索クエリを返します。
     return $search;
 }
-add_filter('posts_search', 'my_posy_search');
+// 'posts_search' フックに 'my_post_search' 関数を追加します。
+add_filter('posts_search', 'my_post_search');
 
+// 空の検索クエリに対してリダイレクトを行う関数を定義します。
 function empty_search_redirect( $wp_query ) {
+    // 主要クエリであり、検索ページであり、管理画面ではない場合に処理を行います。
     if ( $wp_query->is_main_query() && $wp_query->is_search && ! $wp_query->is_admin ) {
-    $s = $wp_query->get( 's' );
-    $s = trim( $s );
-    if ( empty( $s ) ) {
-    wp_safe_redirect( home_url('/') );
-    exit;
+        // 検索クエリの文字列を取得し、トリミングします。
+        $s = $wp_query->get( 's' );
+        $s = trim( $s );
+        // 検索クエリが空の場合、ホームページにリダイレクトします。
+        if ( empty( $s ) ) {
+            wp_safe_redirect( home_url('/') );
+            exit;
+        }
     }
-    }
-    }
-    add_action( 'parse_query', 'empty_search_redirect' );
+}
+// 'parse_query' フックに 'empty_search_redirect' 関数を追加します。
+add_action( 'parse_query', 'empty_search_redirect' );
+
 
 
 // aside
+// WordPress の 'register_sidebar' 関数が存在するかどうかを確認します。
+// この関数はウィジェットエリア（サイドバー）を登録するために使われます。
 if (function_exists('register_sidebar')) {
+    // ウィジェットエリア（サイドバー）を登録します。
     register_sidebar(array(
-      'name' => 'サイドバー',
-      'id' => 'sidebar',
-      'description' => 'サイドバーウィジェット',
-      'before_widget' => '<div>',
-      'after_widget' => '</div>',
-      'before_title' => '<h3 class="side-title">',
-      'after_title' => '</h3>'
-   ));
-  }
-
-
-
-
-
-
+        'name' => 'サイドバー',             // サイドバーの名前。
+        'id' => 'sidebar',                 // サイドバーのID。ウィジェットを指定する際に使用します。
+        'description' => 'サイドバーウィジェット',  // サイドバーの説明。
+        'before_widget' => '<div>',        // ウィジェットを囲む前のHTMLマークアップ。
+        'after_widget' => '</div>',        // ウィジェットを囲む後のHTMLマークアップ。
+        'before_title' => '<h3 class="side-title">', // ウィジェットのタイトルを囲む前のHTMLマークアップ。
+        'after_title' => '</h3>'           // ウィジェットのタイトルを囲む後のHTMLマークアップ。
+    ));
+}
 
 
 // tag
 //タグクラウドショートコードget_tags()投稿数表示無し
+// ショートコード用の関数を定義します。
 function mytagsc2() {
-    ob_start();?>
-  <div class="mytags">
-  <?php
-  $tags = get_tags('orderby=name&order=ASC');
-  $orderby = apply_filters( 'get_terms_orderby', $orderby, $args );
-  if ($tags) {
-  foreach($tags as $tag) { ?>
-  <a href="<?php echo get_tag_link($tag->term_id); ?>"><?php echo $tag->name ; ?></a>
-  <?php } ?>
-  <?php } ?>
-  </div>
-  <?php
-  return ob_get_clean();
-  }
-  add_shortcode('mytag2', 'mytagsc2');
+    // 出力バッファリングを開始します。
+    ob_start(); ?>
+    <div class="mytags">
+    <?php
+    // タグを名前順で取得します。
+    $tags = get_tags('orderby=name&order=ASC');
+    // タグの順序をフィルタリングするためのフックを適用します。
+    $orderby = apply_filters( 'get_terms_orderby', $orderby, $args );
+    if ($tags) {
+        // 取得したタグごとにループ処理を行います。
+        foreach($tags as $tag) { ?>
+            <a href="<?php echo get_tag_link($tag->term_id); ?>"><?php echo $tag->name ; ?></a>
+        <?php } ?>
+    <?php } ?>
+    </div>
+    <?php
+    // 出力バッファを取得し、クリーンアップします。
+    return ob_get_clean();
+}
+// 'mytag2' というショートコードを 'mytagsc2' 関数に関連付けます。
+add_shortcode('mytag2', 'mytagsc2');
+
 
   function enqueue_theme_scripts() {
     wp_enqueue_script('jquery');
